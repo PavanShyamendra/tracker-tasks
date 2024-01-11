@@ -2,7 +2,7 @@
   "name": "kaala_yantra",
   "version": "1.0.0",
   "description": "backend service for kaala_yantra app",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/netlify-lambda serve src",
     "build": "./node_modules/.bin/netlify-lambda build src"
