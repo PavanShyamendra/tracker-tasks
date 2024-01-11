@@ -1,6 +1,8 @@
 // Import necessary modules
 const express = require('express');
 const mongoose = require('mongoose');
+const serverless = require('serverless-http');
+
 
 // Create Express app
 const app = express();
@@ -25,7 +27,13 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+const handler = serverless(app);
+
+module.exports.handler = async (event, context) => {
+  const result = await handler(event, context);
+  return result;
+};
+
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// })
